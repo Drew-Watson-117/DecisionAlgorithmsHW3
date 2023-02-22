@@ -56,5 +56,5 @@ for price_path in price_paths:
     plt.plot(price_path)
 plt.show()
 
-print(f"Best Price for European Call Option based on average value of Stock 1 and Stock 2:\n{np.average(call_payoffs_average)*100}")  # Options are in blocks of 100
-print(f"Best Price for European Call Option based on max value of Stock 1 and Stock 2:\n{np.average(call_payoffs_max)*100}")  # Options are in blocks of 100
+print(f"Average payoff for 100 options based on average value of Stock 1 and Stock 2:\n ${np.average(call_payoffs_average)*100}")  # Options are in blocks of 100
+print(f"Average payoff for 100 options based on max value of Stock 1 and Stock 2:\n ${np.average(call_payoffs_max)*100}")  # Options are in blocks of 100

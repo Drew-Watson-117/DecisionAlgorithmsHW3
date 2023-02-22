@@ -1,3 +1,15 @@
+# Running the Code
+
+- To run Part 1, type `python part1.py`
+    - This will output the average payoff for a block of 100 options
+    - It will also create a graph of the price paths for the stock
+- To run Part 2, type `python part2.py`
+    - This will fit stock1.csv and stock2.csv to distributions
+        - It will then plot the distributions against the histograms for stock 1 and stock 2
+    - The program will then output the average payoff for 100 options when the value of each option is calculated by outperforming the average value of the distributions.
+    - The program does the same for outperforming the max value of the distributions. 
+
+
 # Part 1
 
 ## Idea

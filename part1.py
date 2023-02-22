@@ -26,4 +26,4 @@ for price_path in price_paths:
     plt.plot(price_path)
 plt.show()
 
-print(np.average(call_payoffs)*100)  # Options are in blocks of 100
+print(f"Average payoff for 100 options: ${np.average(call_payoffs)*100}")  # Options are in blocks of 100
