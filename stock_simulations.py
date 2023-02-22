@@ -34,6 +34,26 @@ class Comparative_Payoff:
         else:
             return 0
 
+class Comparative_Payoff_2:
+
+    def __init__(self, payoff1, payoff2):
+        self.payoff1 = payoff1
+        self.payoff2 = payoff2
+        self.N = len(self.payoff1)
+
+    def get_payoff_average(self, stock_price):
+        comparisonValue = np.average([self.payoff1[self.N-1], self.payoff2[self.N-1]])
+        if stock_price > comparisonValue:
+            return stock_price - comparisonValue
+        else:
+            return 0
+
+    def get_payoff_max(self, stock_price):
+        comparisonValue = np.max([self.payoff1[self.N-1], self.payoff2[self.N-1]])
+        if stock_price > comparisonValue:
+            return stock_price - comparisonValue
+        else:
+            return 0
 
 
 class BetaMotion:

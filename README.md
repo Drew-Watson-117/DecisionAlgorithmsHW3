@@ -20,7 +20,7 @@
 
 ## Results
 
-- The ideal price of the option is approximately $904 (for a block of 100 options). 
+- The ideal price of the option is approximately $900 (for a block of 100 options). 
 
 # Part 2
 
@@ -39,17 +39,14 @@
     - Each stock gets its own distribution (2 total)
 - Pull down 365 values from each distribution as the estimated prices for each stock
 - For outperforming the average of the two stocks:
-    - If the value of the option at expiry is greater than the average value of the two stocks, then the payoff is option_price - average(stocks_prices)
+    - If the value of the option at expiry is greater than the average value of the two stocks AT EXPIRY (last element in price list), then the payoff is option_price - average(stock1_expiry_price, stock2_expiry_price)
     - Else, the payoff of the option is 0
 - For outperforming the max of the two stocks:
-    - If the value of the option at expiry is greater than the max value of the two stocks, then the payoff is option_price - max(stocks_prices)
+    - If the value of the option at expiry is greater than the max value of the two stocks AT EXPIRY (last element in price list), then the payoff is option_price - max(stock1_expiry_price, stock2_expiry_price)
     - Else, the payoff of the option is 0
 
 ## Results
 
-- Results according to distributions fit for stocks 1 and 2. 
+Results according to distributions fit for stocks 1 and 2:
 
-- For outperforming the average value of the two stocks, the optimal price for the option is approximately $780(for a block of 100 options)
-
-- The option will (almost) never outperform the max value of the two stocks, so the optimal price of the option is not to sell it ($0)
-    - This conclusion likely comes from the imperfection of my distribution model (i.e. not approximating the tails correctly). 
+- The average payoff has a large volatility, varying between about $500 and $1500 when computed using the average value and varying from about $200 to $1200 when computed using the max value. This is because the payoff of the option all depends on the random draws obtained for the stock prices at expiry
