@@ -58,7 +58,7 @@ class BetaMotion:
 
 def fitStock(fileName):
     stock = pd.read_csv(fileName, names=["Data"])
-    f = Fitter(stock, distributions=["gamma", "burr", "norm", "beta","lognorm"])
+    f = Fitter(stock, distributions=["f", "alpha", "gamma", "burr", "norm", "beta","lognorm"])
     f.fit()
     print(f.summary())
     bestDistribution = f.get_best(method = 'sumsquare_error')

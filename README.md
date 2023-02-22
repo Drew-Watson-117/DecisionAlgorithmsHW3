@@ -22,7 +22,8 @@
 
 ## Idea
 
-- Fit the stock data to a lognormal distribution
+- Fit the stock data to its best distribution
+    - f distribution for stock 1, alpha distribution for stock 2
     - Each stock gets its own distribution (2 total)
 - Pull down 365 values from each distribution as the estimated prices for each stock
 - For outperforming the average of the two stocks:
@@ -34,7 +35,9 @@
 
 ## Results
 
-- For outperforming the average value of the two stocks, the optimal price for the option is approximately $770 (for a block of 100 options)
+- Results according to distributions fit for stocks 1 and 2. 
+
+- For outperforming the average value of the two stocks, the optimal price for the option is approximately $780(for a block of 100 options)
 
 - The option will (almost) never outperform the max value of the two stocks, so the optimal price of the option is not to sell it ($0)
     - This conclusion likely comes from the imperfection of my distribution model (i.e. not approximating the tails correctly). 

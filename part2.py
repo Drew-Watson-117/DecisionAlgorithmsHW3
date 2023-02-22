@@ -2,14 +2,20 @@ from stock_simulations import *
 
 import matplotlib.pyplot as plt
 import numpy as np
+from scipy import stats
 
 # Fitting
-bestDist1 = fitStock("stock1.csv")["lognorm"]
-bestDist2 = fitStock("stock2.csv")["lognorm"]
+bestDist1 = fitStock("stock1.csv")["f"]
+bestDist2 = fitStock("stock2.csv")["alpha"]
 
 
-def stock_price(dist):
-    return dist["scale"]*np.random.lognormal(sigma=dist["s"]) + dist["loc"]
+def stock_price(dist, stock):
+    if stock == "stock1":
+        return stats.f.rvs(dfn=dist["dfn"], dfd=dist["dfd"], loc=dist["loc"], scale=dist["scale"])
+        # return dist["scale"]*np.random.lognormal(sigma=dist["s"]) + dist["loc"]
+    else:
+        # Alpha distribution
+        return stats.alpha.rvs(a=dist["a"], loc=dist["loc"], scale=dist["scale"])
 
 # Model Parameters
 paths = 5000 #iterations?
@@ -25,8 +31,8 @@ stock1_prices = []
 stock2_prices = []
 Time = T
 while Time - dt > 0:
-    stock1_prices.append(stock_price(bestDist1))
-    stock2_prices.append(stock_price(bestDist2))
+    stock1_prices.append(stock_price(bestDist1, "stock1"))
+    stock2_prices.append(stock_price(bestDist2, "stock2"))
     Time -= dt
 
 # Generate a set of sample paths
